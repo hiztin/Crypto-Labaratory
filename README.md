@@ -46,7 +46,7 @@ https://h1zz-huzler.github.io/Crypto-Lab-Site/
 
 # 👤 Автор
 
-**github:h1zz-Huzler
+**github:h1zz-Huzler**
 
-discord:h1zz**
+**discord:h1zz**
 
