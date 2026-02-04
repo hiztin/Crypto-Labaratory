@@ -1,4 +1,5 @@
 # Crypto-Labaratory
+https://h1zz-huzler.github.io/Crypto-Labaratory/
 # 📌 О проекте
 ![GitHub last commit](https://img.shields.io/github/last-commit/h1zz-Huzler/Crypto-Lab-Site?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/h1zz-Huzler/Crypto-Lab-Site?style=flat-square)
