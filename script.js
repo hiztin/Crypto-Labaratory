@@ -270,7 +270,7 @@ const CryptoLab = {
     const startAutoSlide = () => {
       autoSlideInterval = setInterval(() => {
         goToSlide(currentIndex + 1);
-      }, 10000); // Каждые 10 секунд
+      }, 12000); // Каждые 12 секунд
     };
 
     const resetAutoSlide = () => {
