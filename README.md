@@ -1,10 +1,9 @@
 # Crypto-Labaratory
 https://h1zz-huzler.github.io/Crypto-Labaratory/
 # 📌 О проекте
-![GitHub last commit](https://img.shields.io/github/last-commit/h1zz-Huzler/Crypto-Lab-Site?style=flat-square)
-![GitHub repo size](https://img.shields.io/github/repo-size/h1zz-Huzler/Crypto-Lab-Site?style=flat-square)
-![GitHub top language](https://img.shields.io/github/languages/top/h1zz-Huzler/Crypto-Lab-Site?style=flat-square)
-![GitHub language count](https://img.shields.io/github/languages/count/h1zz-Huzler/Crypto-Lab-Site?style=flat-square)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![GitHub](https://img.shields.io/github/license/h1zz-Huzler/Crypto-Lab-Site?style=flat-square)
 
 Это мой школьный проект-веб-сайт-лаборатория по криптографии, позволяющий пользователям изучать и тестировать различные криптографические алгоритмы и методы. На сайте были сделаны интерактивные инструменты которые позволяют попробовать разные методы шифров.
@@ -22,12 +21,9 @@ https://h1zz-huzler.github.io/Crypto-Lab-Site/
     Адаптивность
 
 # Что я использовал? 
-    HTML — структура веб-страниц.
-
-    CSS — стилизация и адаптивный дизайн.
-
-    JavaScript  — интерактивные функции и логика криптографических инструментов.
-
+- **HTML** (30.3%) — структура веб-страниц
+- **CSS** (32.9%) — стилизация и адаптивный дизайн  
+- **JavaScript** (36.8%) — интерактивные функции и логика
 # 🤝 Участие в разработке
 Если вы хотите внести свой вклад в проект:
     Сделайте форк репозитория.
