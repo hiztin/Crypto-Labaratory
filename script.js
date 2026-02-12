@@ -334,19 +334,11 @@ const CryptoLab = {
     const STORAGE_KEY = 'cryptolab_likes';
     const USER_STORAGE_KEY = 'cryptolab_user_liked';
 
-    // УБИРАЕМ ВСЕ ИМИТАЦИИ - ВСЕ ПОЛЬЗОВАТЕЛИ НЕ ЛАЙКАЛИ
-    const users = [
-      { name: 'Алексей', avatar: 'А', liked: false },
-      { name: 'Мария', avatar: 'М', liked: false },
-      { name: 'Дмитрий', avatar: 'Д', liked: false },
-      { name: 'Елена', avatar: 'Е', liked: false },
-      { name: 'Сергей', avatar: 'С', liked: false },
-    ];
 
-    // НАЧИНАЕМ С 0, А НЕ С 128
+
     let totalLikes = localStorage.getItem(STORAGE_KEY)
       ? parseInt(localStorage.getItem(STORAGE_KEY))
-      : 0;
+      : 666;
     let userLiked = localStorage.getItem(USER_STORAGE_KEY) === 'true';
 
     const init = () => {
