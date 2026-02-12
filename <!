@@ -6,14 +6,13 @@
   <meta name="description" content="Образовательная платформа для изучения криптографии. Интерактивные алгоритмы шифрования, историческая справка и практические рекомендации.">
   <meta name="keywords" content="криптография, шифрование, обучение, информационная безопасность, Цезарь, Виженер">
 
-  <!-- Preconnect для оптимизации -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <title>Cryptography Lab. | Образовательный портал для изучения криптографии</title>
 
-  <!-- Стили -->
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -21,12 +20,11 @@
 </head>
 <body>
 
-<!-- Индикатор прокрутки -->
 <div class="scroll-indicator" id="scrollIndicator">
   <div class="scroll-progress" id="scrollProgress"></div>
 </div>
 
-<!-- Шапка сайта -->
+
 <header class="header">
   <div class="container">
     <nav class="nav">
@@ -52,7 +50,6 @@
   </div>
 </header>
 
-<!-- Главная секция -->
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-content">
@@ -92,7 +89,6 @@
   </div>
 </section>
 
-<!-- Историческая справка -->
 <section class="section history-section" id="history">
   <div class="container">
     <div class="section-header">
@@ -203,7 +199,7 @@
   </div>
 </section>
 
-<!-- Криптографическая лаборатория -->
+
 <section class="section lab-section" id="lab">
   <div class="container">
     <div class="section-header">
@@ -337,7 +333,6 @@
 </section>
 
 
-<!-- Практические рекомендации по защите информации -->
 <section class="section recommendations-section" id="recommendations">
   <div class="container">
     <div class="section-header">
@@ -348,9 +343,8 @@
       <p class="section-subtitle">Как применять криптографию в повседневной жизни и защитить свои данные</p>
     </div>
 
-    <!-- Карточки с рекомендациями -->
     <div class="recommendations-grid">
-      <!-- Карточка 1: Пароли -->
+
       <div class="recommendation-card">
         <div class="card-corner"></div>
         <div class="card-icon-wrapper">
@@ -374,7 +368,6 @@
         </div>
       </div>
 
-      <!-- Карточка 2: Двухфакторная аутентификация -->
       <div class="recommendation-card">
         <div class="card-corner"></div>
         <div class="card-icon-wrapper">
@@ -398,7 +391,6 @@
         </div>
       </div>
 
-      <!-- Карточка 3: Шифрование устройств -->
       <div class="recommendation-card">
         <div class="card-corner"></div>
         <div class="card-icon-wrapper">
@@ -422,7 +414,6 @@
         </div>
       </div>
 
-      <!-- Карточка 4: Мессенджеры -->
       <div class="recommendation-card">
         <div class="card-corner"></div>
         <div class="card-icon-wrapper">
@@ -446,7 +437,7 @@
         </div>
       </div>
 
-      <!-- Карточка 5: Электронная почта -->
+ 
       <div class="recommendation-card">
         <div class="card-corner"></div>
         <div class="card-icon-wrapper">
@@ -470,7 +461,6 @@
         </div>
       </div>
 
-      <!-- Карточка 6: Облачные хранилища -->
       <div class="recommendation-card">
         <div class="card-corner"></div>
         <div class="card-icon-wrapper">
@@ -495,7 +485,6 @@
       </div>
     </div>
 
-    <!-- Таблица сравнения инструментов -->
     <div class="comparison-section">
       <h3 class="comparison-title">
         <i class="fas fa-chart-bar" aria-hidden="true"></i>
@@ -568,7 +557,6 @@
       </div>
     </div>
 
-    <!-- Блок с чек-листом -->
     <div class="checklist-section">
       <div class="checklist-header">
         <i class="fas fa-clipboard-check" aria-hidden="true"></i>
@@ -626,7 +614,6 @@
       </div>
     </div>
 
-    <!-- Итоговый призыв к действию -->
     <div class="recommendations-cta">
       <div class="cta-content">
         <h4>Начните защищать свои данные прямо сейчас</h4>
@@ -654,7 +641,7 @@
   </div>
 </section>
 
-<!-- О проекте -->
+
 <section class="section about-section" id="about">
   <div class="container">
     <div class="section-header">
@@ -745,7 +732,7 @@
   </div>
 </section>
 
-<!-- Секция лайков -->
+
 <section class="like-section">
   <div class="container">
     <div class="like-card">
@@ -774,7 +761,6 @@
   </div>
 </section>
 
-<!-- Подвал -->
 <footer class="footer" id="contact">
   <div class="container">
     <div class="footer-content">
@@ -832,7 +818,7 @@
   </div>
 </footer>
 
-<!-- Кнопка "Наверх" -->
+
 <button class="scroll-top" id="scrollTop" aria-label="Наверх">
   <i class="fas fa-arrow-up" aria-hidden="true"></i>
 </button>
