@@ -1,13 +1,12 @@
 
-
 const CryptoLab = {
   init() {
-    console.log('инициализация кала');
+    console.log('Инициализация');
 
     this.setupEventListeners();
     this.setupScrollIndicator();
     this.setupScrollToTop();
-    this.setupCarousel();
+
     this.setupCharacterCounter();
     this.setupNavigation();
     this.setupSmoothScroll();
@@ -15,13 +14,14 @@ const CryptoLab = {
     this.setupDemo();
     this.setupHistorySection();
     this.setupLikeSystem();
-
+    this.setupChecklist();
     this.updateAlgorithmInfo();
 
     console.log('всё ок');
   },
 
   setupEventListeners() {
+ 
     const encryptBtn = document.getElementById('encryptBtn');
     const decryptBtn = document.getElementById('decryptBtn');
     const clearBtn = document.getElementById('clearBtn');
@@ -46,7 +46,7 @@ const CryptoLab = {
       );
   },
 
-  // Навигация
+
   setupNavigation() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
@@ -75,34 +75,7 @@ const CryptoLab = {
     window.addEventListener('scroll', () => this.updateActiveNavLink());
   },
 
-  // Плавный скролл
-  setupSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
 
-        const targetElement = document.querySelector(href);
-        if (!targetElement) return;
-
-        e.preventDefault();
-
-        const headerHeight = document.querySelector('.header').offsetHeight;
-        const targetPosition = targetElement.offsetTop - headerHeight;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth',
-        });
-
-        if (history.pushState) {
-          history.pushState(null, null, href);
-        }
-      });
-    });
-  },
-
-  // Обновление активной ссылки
   updateActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -130,7 +103,34 @@ const CryptoLab = {
     });
   },
 
-  // Индикатор прокрутки
+  // ===== ПЛАВНЫЙ СКРОЛЛ =====
+  setupSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+
+        const targetElement = document.querySelector(href);
+        if (!targetElement) return;
+
+        e.preventDefault();
+
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const targetPosition = targetElement.offsetTop - headerHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth',
+        });
+
+        if (history.pushState) {
+          history.pushState(null, null, href);
+        }
+      });
+    });
+  },
+
+
   setupScrollIndicator() {
     const scrollProgress = document.getElementById('scrollProgress');
     if (!scrollProgress) return;
@@ -151,7 +151,6 @@ const CryptoLab = {
     });
   },
 
-  // Кнопка "Наверх"
   setupScrollToTop() {
     const scrollTopBtn = document.getElementById('scrollTop');
     if (!scrollTopBtn) return;
@@ -172,7 +171,6 @@ const CryptoLab = {
     });
   },
 
-  // Счетчик символов
   setupCharacterCounter() {
     const inputText = document.getElementById('inputText');
     const charCount = document.getElementById('charCount');
@@ -195,107 +193,13 @@ const CryptoLab = {
     updateCounter();
   },
 
-  // Карусель
-  setupCarousel() {
-    const carouselTrack = document.getElementById('carouselTrack');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const indicators = document.querySelectorAll('.indicator');
-    const currentSlideEl = document.getElementById('currentSlide');
-    const totalSlidesEl = document.getElementById('totalSlides');
 
-    if (!carouselTrack || !prevBtn || !nextBtn) return;
-
-    const slides = document.querySelectorAll('.carousel-slide');
-    const totalSlides = slides.length;
-    let currentIndex = 0;
-    let autoSlideInterval;
-
-    if (totalSlidesEl) {
-      totalSlidesEl.textContent = totalSlides;
-    }
-
-    const goToSlide = (index) => {
-      if (index >= totalSlides) index = 0;
-      if (index < 0) index = totalSlides - 1;
-
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) {
-          slide.classList.add('active');
-        }
-      });
-
-      indicators.forEach((indicator, i) => {
-        indicator.classList.toggle('active', i === index);
-      });
-
-      if (currentSlideEl) {
-        currentSlideEl.textContent = index + 1;
-      }
-
-      currentIndex = index;
-    };
-
-    prevBtn.addEventListener('click', () => {
-      goToSlide(currentIndex - 1);
-      resetAutoSlide();
-    });
-
-    nextBtn.addEventListener('click', () => {
-      goToSlide(currentIndex + 1);
-      resetAutoSlide();
-    });
-
-    indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
-        goToSlide(index);
-        resetAutoSlide();
-      });
-    });
-
-    const startAutoSlide = () => {
-      autoSlideInterval = setInterval(() => {
-        goToSlide(currentIndex + 1);
-      }, 12000);
-    };
-
-    const resetAutoSlide = () => {
-      clearInterval(autoSlideInterval);
-      startAutoSlide();
-    };
-
-    const carousel = document.getElementById('carousel');
-    if (carousel) {
-      carousel.addEventListener('mouseenter', () => {
-        clearInterval(autoSlideInterval);
-      });
-
-      carousel.addEventListener('mouseleave', () => {
-        startAutoSlide();
-      });
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') {
-        goToSlide(currentIndex - 1);
-        resetAutoSlide();
-      } else if (e.key === 'ArrowRight') {
-        goToSlide(currentIndex + 1);
-        resetAutoSlide();
-      }
-    });
-
-    goToSlide(0);
-    startAutoSlide();
-  },
-
-  // Историческая справка
   setupHistorySection() {
     this.setupTimelineAnimation();
+
   },
 
-  // Анимация таймлайна
+  
   setupTimelineAnimation() {
     const timelineItems = document.querySelectorAll('.timeline-item');
     if (!timelineItems.length) return;
@@ -319,7 +223,8 @@ const CryptoLab = {
     });
   },
 
-  // Система лайков - ЧЕСТНАЯ ВЕРСИЯ
+
+
   setupLikeSystem() {
     const likeButton = document.getElementById('likeButton');
     const likeIcon = document.getElementById('likeIcon');
@@ -335,17 +240,14 @@ const CryptoLab = {
     const USER_STORAGE_KEY = 'cryptolab_user_liked';
 
 
-
-    let totalLikes = localStorage.getItem(STORAGE_KEY)
-      ? parseInt(localStorage.getItem(STORAGE_KEY))
-      : 666;
+    let totalLikes = 666;
     let userLiked = localStorage.getItem(USER_STORAGE_KEY) === 'true';
 
     const init = () => {
       updateLikeCount(totalLikes);
       updateLikeButtonState(userLiked);
       updateUsersList();
-      // УБИРАЕМ АВТОМАТИЧЕСКУЮ АНИМАЦИЮ СЕРДЕЧКА
+
     };
 
     const updateLikeCount = (count) => {
@@ -396,34 +298,23 @@ const CryptoLab = {
 
     const updateUsersList = () => {
       if (!likeUsers) return;
-
-      const displayUsers = [];
-
-
-      // ДОБАВЛЯЕМ ТОЛЬКО ТЕХ, У КОГО liked: true
-      users.forEach((user) => {
-        if (user.liked) {
-          displayUsers.push(user);
-        }
-      });
-
       let usersHTML = `<div class="like-users-list">`;
 
       displayUsers.slice(0, 5).forEach((user) => {
         usersHTML += `
-                <div class="like-user-avatar" title="${user.name}">
-                    ${user.avatar}
-                </div>
-            `;
+                    <div class="like-user-avatar" title="${user.name}">
+                        ${user.avatar}
+                    </div>
+                `;
       });
 
       usersHTML += `
-            </div>
-            <div class="like-total">
-                <i class="fas fa-heart" style="color: #ef4444;"></i>
-                ${totalLikes.toLocaleString()} всего
-            </div>
-        `;
+                </div>
+                <div class="like-total">
+                    <i class="fas fa-heart" style="color: #ef4444;"></i>
+                    ${totalLikes.toLocaleString()} всего
+                </div>
+            `;
 
       likeUsers.innerHTML = usersHTML;
     };
@@ -484,7 +375,68 @@ const CryptoLab = {
     init();
   },
 
-  // Быстрые примеры
+  setupChecklist() {
+    const checkboxes = document.querySelectorAll(
+      '.checklist-item input[type="checkbox"]',
+    );
+    const progressEl = document.getElementById('checklistProgress');
+    const resetBtn = document.getElementById('checklistResetBtn');
+
+    if (!checkboxes.length || !progressEl) return;
+
+    const CHECKLIST_STORAGE_KEY = 'cryptolab_checklist';
+
+    const savedState = localStorage.getItem(CHECKLIST_STORAGE_KEY);
+    if (savedState) {
+      try {
+        const checkedStates = JSON.parse(savedState);
+        checkboxes.forEach((checkbox, index) => {
+          if (checkedStates[index]) {
+            checkbox.checked = true;
+          }
+        });
+      } catch (e) {
+        console.log('Ошибка загрузки состояния чек-листа');
+      }
+    }
+
+    const updateProgress = () => {
+      const checkedCount = document.querySelectorAll(
+        '.checklist-item input[type="checkbox"]:checked',
+      ).length;
+      const total = checkboxes.length;
+      progressEl.textContent = `${checkedCount}/${total} выполнено`;
+
+      const states = Array.from(checkboxes).map((cb) => cb.checked);
+      localStorage.setItem(CHECKLIST_STORAGE_KEY, JSON.stringify(states));
+
+      if (checkedCount === total && total > 0 && checkedCount > 0) {
+        this.showNotification(
+          '🎉 Отлично! Вы выполнили все пункты безопасности!',
+          'success',
+        );
+      }
+    };
+
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', updateProgress);
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        checkboxes.forEach((cb) => {
+          cb.checked = false;
+        });
+        updateProgress();
+        this.showNotification('Чек-лист сброшен', 'info');
+      });
+    }
+
+    updateProgress();
+  },
+
+
   setupExamples() {
     const exampleBtns = document.querySelectorAll('.example-btn');
 
@@ -519,7 +471,6 @@ const CryptoLab = {
     });
   },
 
-  // Демо
   setupDemo() {
     const demoBtn = document.getElementById('demoBtn');
 
@@ -547,7 +498,6 @@ const CryptoLab = {
     }
   },
 
-  // Генерация ключа
   generateKey() {
     const keyInput = document.getElementById('keyInput');
     if (!keyInput) return;
@@ -565,7 +515,6 @@ const CryptoLab = {
     this.showNotification(`Сгенерирован новый ключ: ${key}`, 'info');
   },
 
-  // Обновление информации об алгоритме
   updateAlgorithmInfo() {
     const algorithmSelect = document.getElementById('algorithmSelect');
     const algorithmInfo = document.getElementById('algorithmInfo');
@@ -606,7 +555,7 @@ const CryptoLab = {
     algorithmInfo.innerHTML = `<strong>${algo.name}:</strong> ${algo.description}`;
   },
 
-  // Шифрование
+
   handleEncrypt() {
     const inputText = document.getElementById('inputText');
     const outputText = document.getElementById('outputText');
@@ -635,7 +584,6 @@ const CryptoLab = {
     }
   },
 
-  // Дешифрование
   handleDecrypt() {
     const inputText = document.getElementById('inputText');
     const outputText = document.getElementById('outputText');
@@ -664,7 +612,6 @@ const CryptoLab = {
     }
   },
 
-  // Очистка
   handleClear() {
     const inputText = document.getElementById('inputText');
     const outputText = document.getElementById('outputText');
@@ -680,7 +627,6 @@ const CryptoLab = {
     if (inputText) inputText.focus();
   },
 
-  // Копирование
   handleCopy() {
     const outputText = document.getElementById('outputText');
 
@@ -719,7 +665,6 @@ const CryptoLab = {
     }
   },
 
-  // Скачивание результата
   handleDownload() {
     const outputText = document.getElementById('outputText');
 
@@ -739,7 +684,6 @@ const CryptoLab = {
     this.showNotification('Результат скачан', 'success');
   },
 
-  // Алгоритмы шифрования
   encrypt(text, algorithm, key) {
     switch (algorithm) {
       case 'caesar':
@@ -778,7 +722,6 @@ const CryptoLab = {
     }
   },
 
-  // Шифр Цезаря
   caesarCipher(text, key, encrypt) {
     const shift = this.calculateShift(key);
     let result = '';
@@ -788,24 +731,30 @@ const CryptoLab = {
       const charCode = text.charCodeAt(i);
 
       if (charCode >= 1040 && charCode <= 1071) {
+
         const base = 1040;
         const offset = encrypt ? shift : -shift;
         char = String.fromCharCode(
           ((charCode - base + offset + 32) % 32) + base,
         );
       } else if (charCode >= 1072 && charCode <= 1103) {
+
         const base = 1072;
         const offset = encrypt ? shift : -shift;
         char = String.fromCharCode(
           ((charCode - base + offset + 32) % 32) + base,
         );
-      } else if (charCode >= 65 && charCode <= 90) {
+      }
+      // Английские буквы
+      else if (charCode >= 65 && charCode <= 90) {
+        // A-Z
         const base = 65;
         const offset = encrypt ? shift : -shift;
         char = String.fromCharCode(
           ((charCode - base + offset + 26) % 26) + base,
         );
       } else if (charCode >= 97 && charCode <= 122) {
+        // a-z
         const base = 97;
         const offset = encrypt ? shift : -shift;
         char = String.fromCharCode(
@@ -822,7 +771,7 @@ const CryptoLab = {
     return result;
   },
 
-  // Шифр Виженера
+
   vigenereCipher(text, key, encrypt) {
     const cleanKey = key.toLowerCase().replace(/[^а-яa-z]/g, '');
     if (cleanKey.length === 0) return text;
@@ -836,15 +785,19 @@ const CryptoLab = {
 
       let alphabetSize, base;
       if (charCode >= 1040 && charCode <= 1071) {
+        // А-Я
         alphabetSize = 32;
         base = 1040;
       } else if (charCode >= 1072 && charCode <= 1103) {
+        // а-я
         alphabetSize = 32;
         base = 1072;
       } else if (charCode >= 65 && charCode <= 90) {
+        // A-Z
         alphabetSize = 26;
         base = 65;
       } else if (charCode >= 97 && charCode <= 122) {
+        // a-z
         alphabetSize = 26;
         base = 97;
       } else {
@@ -869,7 +822,6 @@ const CryptoLab = {
     return result;
   },
 
-  // XOR шифрование
   xorCipher(text, key) {
     if (!key) return text;
 
@@ -883,7 +835,6 @@ const CryptoLab = {
     return result;
   },
 
-  // Шифр Атбаш
   atbashCipher(text) {
     let result = '';
 
@@ -891,15 +842,24 @@ const CryptoLab = {
       const char = text[i];
       const charCode = text.charCodeAt(i);
 
+      // Русские буквы
       if (charCode >= 1040 && charCode <= 1071) {
+        // А-Я
         result += String.fromCharCode(1071 - (charCode - 1040));
       } else if (charCode >= 1072 && charCode <= 1103) {
+        // а-я
         result += String.fromCharCode(1103 - (charCode - 1072));
-      } else if (charCode >= 65 && charCode <= 90) {
+      }
+      // Английские буквы
+      else if (charCode >= 65 && charCode <= 90) {
+        // A-Z
         result += String.fromCharCode(90 - (charCode - 65));
       } else if (charCode >= 97 && charCode <= 122) {
+        // a-z
         result += String.fromCharCode(122 - (charCode - 97));
-      } else {
+      }
+      // Остальные символы
+      else {
         result += char;
       }
     }
@@ -907,7 +867,7 @@ const CryptoLab = {
     return result;
   },
 
-  // Вычисление сдвига для шифра Цезаря
+  // ВЫЧИСЛЕНИЕ СДВИГА ДЛЯ ЦЕЗАРЯ
   calculateShift(key) {
     if (!key) return 3;
 
@@ -919,7 +879,7 @@ const CryptoLab = {
     return (sum % 25) + 1;
   },
 
-  // Уведомления
+  //  УВЕДОМЛЕНИЯ 
   showNotification(message, type = 'info') {
     const existingNotifications = document.querySelectorAll(
       '.custom-notification',
@@ -973,7 +933,29 @@ const CryptoLab = {
   },
 };
 
-// Инициализация при загрузке страницы
+// ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ
 document.addEventListener('DOMContentLoaded', () => {
   CryptoLab.init();
-});А
+});
+
+//ДОБАВЛЕНИЕ CSS-АНИМАЦИЙ
+const animationStyles = `
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .section {
+        animation: fadeInUp 0.8s ease;
+    }
+`;
+
+const styleSheet = document.createElement('style');
+styleSheet.textContent = animationStyles;
+document.head.appendChild(styleSheet);
