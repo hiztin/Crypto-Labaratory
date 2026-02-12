@@ -6,6 +6,7 @@
   <meta name="description" content="Образовательная платформа для изучения криптографии. Интерактивные алгоритмы шифрования, историческая справка и практические рекомендации.">
   <meta name="keywords" content="криптография, шифрование, обучение, информационная безопасность, Цезарь, Виженер">
 
+
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +42,6 @@
         <li class="nav-item"><a href="#home" class="nav-link active">Главная</a></li>
         <li class="nav-item"><a href="#history" class="nav-link">История</a></li>
         <li class="nav-item"><a href="#lab" class="nav-link">Лаборатория</a></li>
-        <li class="nav-item"><a href="#ciphers" class="nav-link">Шифры</a></li>
         <li class="nav-item"><a href="#recommendations" class="nav-link">Рекомендации</a></li>
         <li class="nav-item"><a href="#about" class="nav-link">О проекте</a></li>
         <li class="nav-item"><a href="#contact" class="nav-link">Контакты</a></li>
@@ -55,7 +55,7 @@
     <div class="hero-content">
       <div class="hero-badge">Образовательная платформа</div>
       <h1 class="hero-title">Криптография <span class="highlight">это</span> будущее</h1>
-      <p class="hero-description">Наш проект нацелен на изучение современных методов шифрования, на сайте представлены инструменты для практики в шифровке и дешифровке.</p>
+      <p class="hero-description">Криптография это наука о математических методах обеспечения конфиденциальности, целостности данных, аутентификации, шифрования. </p>
       <div class="hero-actions">
         <a href="#lab" class="btn btn-primary">
           <i class="fas fa-flask" aria-hidden="true"></i>
@@ -333,6 +333,7 @@
 </section>
 
 
+
 <section class="section recommendations-section" id="recommendations">
   <div class="container">
     <div class="section-header">
@@ -342,6 +343,7 @@
       </h2>
       <p class="section-subtitle">Как применять криптографию в повседневной жизни и защитить свои данные</p>
     </div>
+
 
     <div class="recommendations-grid">
 
@@ -368,6 +370,7 @@
         </div>
       </div>
 
+
       <div class="recommendation-card">
         <div class="card-corner"></div>
         <div class="card-icon-wrapper">
@@ -387,9 +390,10 @@
         </ul>
         <div class="card-tip">
           <i class="fas fa-lightbulb" aria-hidden="true"></i>
-          <span><strong>Совет:</strong> Настройте биометрию (Face ID/Touch ID) для быстрого доступа</span>
+          <span><strong>Пояснение:</strong> Двухфакторная аутентификация-это метод усиленной безопасности, требующий два разных подтверждения личности для входа в аккаунт</span>
         </div>
       </div>
+
 
       <div class="recommendation-card">
         <div class="card-corner"></div>
@@ -414,6 +418,7 @@
         </div>
       </div>
 
+
       <div class="recommendation-card">
         <div class="card-corner"></div>
         <div class="card-icon-wrapper">
@@ -437,7 +442,7 @@
         </div>
       </div>
 
- 
+
       <div class="recommendation-card">
         <div class="card-corner"></div>
         <div class="card-icon-wrapper">
@@ -460,6 +465,7 @@
           <span><strong>Совет:</strong> Mailvelope — расширение для PGP шифрования в браузере</span>
         </div>
       </div>
+
 
       <div class="recommendation-card">
         <div class="card-corner"></div>
@@ -484,6 +490,7 @@
         </div>
       </div>
     </div>
+
 
     <div class="comparison-section">
       <h3 class="comparison-title">
@@ -557,62 +564,64 @@
       </div>
     </div>
 
+
     <div class="checklist-section">
       <div class="checklist-header">
         <i class="fas fa-clipboard-check" aria-hidden="true"></i>
         <h3>Чек-лист вашей безопасности</h3>
       </div>
-      <div class="checklist-grid">
+      <div class="checklist-grid" id="checklistGrid">
         <div class="checklist-item">
           <label class="checkbox-container">
-            <input type="checkbox" aria-label="Обновлены пароли в менеджере">
+            <input type="checkbox" class="checklist-checkbox" data-index="0">
             <span class="checkmark"></span>
             <span class="check-text">Обновлены пароли в менеджере</span>
           </label>
         </div>
         <div class="checklist-item">
           <label class="checkbox-container">
-            <input type="checkbox" aria-label="Проверены подозрительные входы в аккаунты">
+            <input type="checkbox" class="checklist-checkbox" data-index="1">
             <span class="checkmark"></span>
             <span class="check-text">Проверены подозрительные входы в аккаунты</span>
           </label>
         </div>
         <div class="checklist-item">
           <label class="checkbox-container">
-            <input type="checkbox" aria-label="Обновлена ОС и приложения">
+            <input type="checkbox" class="checklist-checkbox" data-index="2">
             <span class="checkmark"></span>
             <span class="check-text">Обновлена ОС и приложения</span>
           </label>
         </div>
         <div class="checklist-item">
           <label class="checkbox-container">
-            <input type="checkbox" aria-label="Сделана резервная копия важных данных">
+            <input type="checkbox" class="checklist-checkbox" data-index="3">
             <span class="checkmark"></span>
             <span class="check-text">Сделана резервная копия важных данных</span>
           </label>
         </div>
         <div class="checklist-item">
           <label class="checkbox-container">
-            <input type="checkbox" aria-label="Проверены настройки приватности в соцсетях">
+            <input type="checkbox" class="checklist-checkbox" data-index="4">
             <span class="checkmark"></span>
             <span class="check-text">Проверены настройки приватности в соцсетях</span>
           </label>
         </div>
         <div class="checklist-item">
           <label class="checkbox-container">
-            <input type="checkbox" aria-label="Включён VPN при работе в публичных сетях">
+            <input type="checkbox" class="checklist-checkbox" data-index="5">
             <span class="checkmark"></span>
             <span class="check-text">Включён VPN при работе в публичных сетях</span>
           </label>
         </div>
       </div>
       <div class="checklist-footer">
-        <button class="btn btn-primary" id="checklistResetBtn" aria-label="Сбросить чек-лист">
+        <button class="btn btn-primary" id="checklistResetBtn">
           <i class="fas fa-undo" aria-hidden="true"></i> Сбросить
         </button>
         <span class="checklist-progress" id="checklistProgress">0/6 выполнено</span>
       </div>
     </div>
+
 
     <div class="recommendations-cta">
       <div class="cta-content">
@@ -641,7 +650,6 @@
   </div>
 </section>
 
-
 <section class="section about-section" id="about">
   <div class="container">
     <div class="section-header">
@@ -656,7 +664,7 @@
       <div class="about-text">
         <div class="mission-card">
           <h3><i class="fas fa-bullseye" aria-hidden="true"></i> Наша идея</h3>
-          <p>Cryptography Lab. создан как интерактивная образовательная платформа для изучения криптографии. Нашей команде кажется, что понимание принципов шифрования — важный навык в современном мире.</p>
+          <p>Cryptography Lab. Cоздан как интерактивная образовательная платформа для изучения криптографии. Нашей команде кажется, что понимание принципов шифрования — важный навык в современном мире.</p>
         </div>
 
         <div class="features-grid">
@@ -732,7 +740,6 @@
   </div>
 </section>
 
-
 <section class="like-section">
   <div class="container">
     <div class="like-card">
@@ -773,7 +780,7 @@
           Образовательная платформа по криптографии и информационной безопасности.
         </p>
         <div class="social-links">
-          <a href="https://github.com/h1zz-Huzler" class="social-link" aria-label="GitHub">
+          <a href="https://github.com/hiztin" class="social-link" aria-label="GitHub">
             <i class="fab fa-github" aria-hidden="true"></i>
           </a>
         </div>
