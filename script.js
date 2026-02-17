@@ -239,7 +239,7 @@ const CryptoLab = {
 
 
 
-    let totalLikes = 666;
+    let totalLikes = 655;
     let userLiked = localStorage.getItem(USER_STORAGE_KEY) === 'true';
 
     const init = () => {
